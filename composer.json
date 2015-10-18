@@ -1,0 +1,45 @@
+{
+    "name": "evista/composer",
+    "description": "Composer package manager integration for WordPress",
+    "keywords": [
+        "evista",
+        "composer",
+        "php",
+        "dependency manager"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Balint Sera",
+            "email": "sera.balint@e-vista.hu",
+            "homepage": "http://evista-agency.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : ">=5.5.0",
+        "twig/twig": "^1.22"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "4.*",
+        "scrutinizer/ocular": "~1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Evista\\Composer\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Evista\\Composer\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
