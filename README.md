@@ -23,7 +23,8 @@ echo $container->get('twig.templating')->render('index.twig.html', ['hehh' => 'Y
 
 Evista Composer plugin makes the marvellous Composer accessible in any WordPress project. If you never heard about it, Composer is a PHP package manager with a very good dependency resolver that makes using of third party libraries a breeze.
 
-Composer transformed the PHP ecosystem recently so you should probably learn it.<div>If you want to use the latest Twig templating engine in your WordPress plugins or themes you only have to
+Composer transformed the PHP ecosystem recently so you should probably learn it. If you want to use the latest Twig templating engine in your WordPress plugins or themes you only have to
+
 1. run composer require twig/twig in the module’s root dir
 2. add the new package to the lazy loader service container’s setup
 
@@ -33,6 +34,7 @@ Afterwards the Twig rendering engine will be accessible from anywhere this way:
 ```php
 echo $container->get('twig.templating')->render('index.twig.html', ['hehh' => 'Yeah!']);
 ```
+
 
 ### How to add a package to the container
 
