@@ -12,11 +12,6 @@ This is a Wordpress plugin that helps to use composer with a lazy loader service
 
 ## Install
 
-Via Composer
-
-``` bash
-$ composer require evista/composer
-```
 
 ## Usage
 
@@ -26,7 +21,7 @@ echo $container->get('twig.templating')->render('index.twig.html', ['hehh' => 'Y
 
 ## Documentation
 
-Evista Composer plugin makes the marvellous Composer accessible in any WordPress project. If you never heard, Composer is a PHP package manager with a very good dependency resolver that makes using of third party libraries a briese.&nbsp;<div>Composer reformatted the PHP ecosystem recently so you should probably learn it.<div>If you want to use the latest Twig templating engine in your WordPress plugins or themes you only have to<div><ol><li>run&nbsp;<i>composer require twig/twig</i> in the module’s root dir</li><li>add the new package to the lazy loader service container’s setup</li></ol><div>Afterwards the Twig rendering engine will be accessible from anywhere this way:</div></div></div></div>
+Evista Composer plugin makes the marvellous Composer accessible in any WordPress project. If you never heard about it, Composer is a PHP package manager with a very good dependency resolver that makes using of third party libraries a breeze.&nbsp;<div>Composer reformatted the PHP ecosystem recently so you should probably learn it.<div>If you want to use the latest Twig templating engine in your WordPress plugins or themes you only have to<div><ol><li>run&nbsp;<i>composer require twig/twig</i> in the module’s root dir</li><li>add the new package to the lazy loader service container’s setup</li></ol><div>Afterwards the Twig rendering engine will be accessible from anywhere this way:</div></div></div></div>
 ```php
 echo $container->get('twig.templating')->render('index.twig.html', ['hehh' => 'Yeah!']);
 ```
