@@ -131,7 +131,7 @@ If you discover any security related issues, please email sera.balint@e-vista.hu
 ## Credits
 
 - [Balint Sera][link-author]
-- [Evista ][link-evista-agency]
+- [Evista Creative Agency][link-evista-agency]
 
 ## License
 
