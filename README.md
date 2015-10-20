@@ -131,7 +131,7 @@ If you discover any security related issues, please email sera.balint@e-vista.hu
 ## Credits
 
 - [Balint Sera][link-author]
-- [All Contributors][link-contributors]
+- [Evista ][link-evista-agency]
 
 ## License
 
@@ -150,4 +150,4 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [link-code-quality]: https://scrutinizer-ci.com/g/thephpleague/evista/clean_code
 [link-downloads]: https://packagist.org/packages/league/evista/clean_code
 [link-author]: https://github.com/serabalint
-[link-contributors]: ../../contributors
+[link-evista-agency]: http://evista-agency.com
