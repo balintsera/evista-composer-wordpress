@@ -28,9 +28,10 @@ class ComPress extends DependencyInjector {
      */
     public function setUpServices(){
 
-
-
         $this->services = [
+            'form.builder' => [
+                'class' => 'AdamWathan\Form\FormBuilder',
+            ],
             'twig.loader' =>[
                 'class' => '\Twig_Loader_Filesystem',
                 'arguments' => [$this->getTwigTemplateDir()]
