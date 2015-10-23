@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== Composer ===
 Contributors: serabalint
 Donate link: http://evista-agency.com/
 Tags: composer, packagist
@@ -8,7 +8,7 @@ Stable tag: 4.3
 License: MIT License (MIT)
 License URI: https://opensource.org/licenses/MIT
 
-This is a Wordpress plugin that helps to use composer with a lazy loader service container (dependency injector).
+Composer integration for WordPress.
 
 == Description ==
 
