@@ -6,7 +6,7 @@
  * Time: 10:11
  */
 
-namespace Evista\Composer\Exception;
+namespace Evista\ComPress\Exception;
 
 
 class BadServiceParameterException extends \Exception

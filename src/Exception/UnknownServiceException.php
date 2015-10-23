@@ -6,7 +6,7 @@
  * Time: 15:40
  */
 
-namespace Evista\Composer\Exception;
+namespace Evista\ComPress\Exception;
 
 
 class UnknownServiceException extends \Exception

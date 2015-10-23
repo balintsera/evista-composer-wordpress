@@ -1,5 +1,5 @@
 <?php
-namespace Evista\Composer;
+namespace Evista\ComPress;
 
 
 include_once('vendor/autoload.php');

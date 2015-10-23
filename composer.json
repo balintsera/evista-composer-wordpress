@@ -1,5 +1,5 @@
 {
-    "name": "evista/composer",
+    "name": "evista/compress",
     "description": "Composer package manager integration for WordPress",
     "keywords": [
         "evista",
@@ -26,12 +26,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Evista\\Composer\\": "src/"
+            "Evista\\ComPress\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Evista\\Composer\\Test\\": "tests"
+            "Evista\\ComPress\\Test\\": "tests"
         }
     },
     "scripts": {

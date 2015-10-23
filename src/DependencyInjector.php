@@ -6,10 +6,10 @@
  * Time: 13:52
  */
 
-namespace Evista\Composer;
+namespace Evista\ComPress;
 
-use Evista\Composer\Exception\UnknownServiceException;
-use Evista\Composer\Exception\BadServiceParameterException;
+use Evista\ComPress\Exception\UnknownServiceException;
+use Evista\ComPress\Exception\BadServiceParameterException;
 
 abstract class DependencyInjector implements Injectable
 {

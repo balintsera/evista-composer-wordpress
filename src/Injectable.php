@@ -6,7 +6,7 @@
  * Time: 13:53
  */
 
-namespace Evista\Composer;
+namespace Evista\ComPress;
 
 
 interface Injectable

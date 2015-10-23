@@ -6,7 +6,7 @@
  * Time: 14:54
  */
 
-namespace Evista\Composer\Service;
+namespace Evista\ComPress\Service;
 
 
 class TestService3
