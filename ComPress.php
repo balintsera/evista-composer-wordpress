@@ -13,13 +13,14 @@ include_once('vendor/autoload.php');
   Author: Balint Sera
   Author URI: http://evista-agency.com
   */
-class ComPress extends DependencyInjector {
+class ComPress {
     protected $services;
+    private $container;
 
     public function __construct(){
         $this->setUpServices();
         // Inicializations goes here
-        parent::__construct();
+        $this->container = new DependencyInjector($this->services);
     }
 
     /**
@@ -73,23 +74,8 @@ class ComPress extends DependencyInjector {
         return $twigTemplateDir;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getServices()
-    {
-        return $this->services;
-    }
-
-    /**
-     * @param mixed $services
-     * @return EvistaComposer
-     */
-    public function setServices($services)
-    {
-        $this->services = $services;
-
-        return $this;
+    public function get($serviceKey){
+        return $this->container->get($serviceKey);
     }
 
 

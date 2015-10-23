@@ -11,14 +11,14 @@ namespace Evista\ComPress;
 use Evista\ComPress\Exception\UnknownServiceException;
 use Evista\ComPress\Exception\BadServiceParameterException;
 
-abstract class DependencyInjector implements Injectable
+class DependencyInjector implements Injectable
 {
 
+    private $services;
     private $loadedServices = [];
 
-    abstract public function getServices();
-
-    public function __construct(){
+    public function __construct($services){
+        $this->services = $services;
         array_walk($this->getServices(), function($serviceDesctription, $serviceKey){
             $this->instantiateService($serviceKey);
         });
@@ -167,4 +167,25 @@ abstract class DependencyInjector implements Injectable
         $evalParams = "[".$evalParams."]";
         return $evalParams;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getServices()
+    {
+        return $this->services;
+    }
+
+    /**
+     * @param mixed $services
+     * @return DependencyInjector
+     */
+    public function setServices($services)
+    {
+        $this->services = $services;
+
+        return $this;
+    }
+
+
 }
