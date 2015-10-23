@@ -6,14 +6,14 @@ include_once('vendor/autoload.php');
 
 
 /*
-  Plugin Name: Compress
+  Plugin Name: ComPress
   Plugin URI:
   Description: Composer integration for WordPress
   Version: 1.0
   Author: Balint Sera
   Author URI: http://evista-agency.com
   */
-class EvistaComposer extends DependencyInjector {
+class ComPress extends DependencyInjector {
     protected $services;
 
     public function __construct(){
@@ -77,6 +77,6 @@ class EvistaComposer extends DependencyInjector {
 
 }
 
-$container = new EvistaComposer();
+$container = new ComPress();
 
 ?>

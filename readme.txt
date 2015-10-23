@@ -1,4 +1,4 @@
-=== Composer ===
+=== ComPress ===
 Contributors: serabalint
 Donate link: http://evista-agency.com/
 Tags: composer, packagist
