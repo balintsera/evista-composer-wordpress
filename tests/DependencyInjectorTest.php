@@ -48,6 +48,6 @@ class DependencyInjectorTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\StdClass', $depIn->get('static'));
     }
 
-    
+
 
 }
