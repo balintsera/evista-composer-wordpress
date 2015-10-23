@@ -33,4 +33,21 @@ class DependencyInjectorTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('Evista\ComPress\Service\TestService', $depIn->get('test.service'));
     }
 
+    /**
+     * Testing abstract method injecting (abstract class injecting as with symfony/form
+     * @throws Exception\UnknownServiceException
+     */
+    public function testAbstractClassLoader(){
+        $services = [
+            'static' => [
+                'class' => 'Evista\ComPress\Service\TestStaticService',
+                'method' => 'init'
+            ]
+        ];
+        $depIn = new DependencyInjector($services);
+        $this->assertInstanceOf('\StdClass', $depIn->get('static'));
+    }
+
+    
+
 }
