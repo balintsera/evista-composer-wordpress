@@ -1,9 +1,7 @@
 <?php
 
-namespace Evista\Composer;
+namespace Evista\ComPress;
 
-use Evista\MailchimpAPI\ValueObject\RequestFactory;
-use Evista\MailchimpAPI\Exception\RequestException;
 
 /**
  * Created by PhpStorm.
@@ -14,11 +12,11 @@ use Evista\MailchimpAPI\Exception\RequestException;
 class DependencyInjectorTest extends \PHPUnit_Framework_TestCase
 {
     public function testDIArgLoader(){
-        $depIn = new EvistaComposer();
+        $depIn = new ComPress();
 
         //$depIn->instantiateService('test.service');
 
-        $this->assertInstanceOf('Evista\Composer\Service\TestService', $depIn->get('test.service'));
+        $this->assertInstanceOf('Evista\ComPress\Service\TestService', $depIn->get('test.service'));
     }
 
 }

@@ -41,15 +41,15 @@ class ComPress extends DependencyInjector {
 
             // These are here for testing purposes. Feel free to remove them
             'test.service' => [
-                'class' => 'Evista\Composer\Service\TestService',
+                'class' => 'Evista\ComPress\Service\TestService',
                 'arguments' => ['@test.service.param1', '@test.service.param2']
             ],
             'test.service.param1' => [
-                'class' => 'Evista\Composer\Service\TestService2',
+                'class' => 'Evista\ComPress\Service\TestService2',
                 'arguments' => ['@test.service.param2', ['testarray'=>'testparam']]
             ],
             'test.service.param2' => [
-                'class' => 'Evista\Composer\Service\TestService3',
+                'class' => 'Evista\ComPress\Service\TestService3',
                 'arguments' => ['stringarg']
             ],
         ];
