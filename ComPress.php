@@ -27,10 +27,13 @@ class ComPress extends DependencyInjector {
      *
      */
     public function setUpServices(){
+
+
+
         $this->services = [
             'twig.loader' =>[
                 'class' => '\Twig_Loader_Filesystem',
-                'arguments' => [__DIR__.'/views']
+                'arguments' => [$this->getTwigTemplateDir()]
             ],
             'twig.templating' => [
                 'class' => '\Twig_Environment',
@@ -53,6 +56,17 @@ class ComPress extends DependencyInjector {
                 'arguments' => ['stringarg']
             ],
         ];
+    }
+
+    private function getTwigTemplateDir(){
+        // Get current template for setup twig's view directory
+        $currentTheme = wp_get_theme();
+        $currentThemeDir = $currentTheme->theme_root.'/'.$currentTheme->template;
+        $twigTemplateDir = __DIR__.'/views';
+        if(file_exists($currentThemeDir)){
+            $twigTemplateDir = $currentThemeDir.'/views';
+        }
+        return $twigTemplateDir;
     }
 
     /**

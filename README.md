@@ -8,7 +8,7 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 
 
-This is a Wordpress plugin that helps to use composer with a lazy loader service container (dependency injector).
+ComPress is a Wordpress plugin that helps to use composer with a lazy loader service container (dependency injector).
 
 ## Install
 
