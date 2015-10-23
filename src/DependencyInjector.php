@@ -81,6 +81,7 @@ abstract class DependencyInjector implements Injectable
      * @throws BadServiceParameterException
      */
     private function convertArgumentsToExpression($serviceArgs){
+        if($serviceArgs === null) return null;
         $evalParams = null;
         foreach($serviceArgs as $serviceKey){
             if(isset($evalParams)){
