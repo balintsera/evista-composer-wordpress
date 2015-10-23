@@ -67,8 +67,16 @@ abstract class DependencyInjector implements Injectable
         // convert arguments to a string list for use in eval
         $evalParams = $this->convertArgumentsToExpression($serviceArgs);
 
+        // If 'method' is set, instantiate as an abstract class
+        if(null !== $this->getServices()[$key]['method']){
+            $instantiateClassExpression = 'return '.$this->getServices()[$key]['class'].'::'.$this->getServices()[$key]['method'].'();';
+        }
+
         // Generate full instatialization expression to use later
-        $instantiateClassExpression = 'return new '.$this->getServices()[$key]['class'].'('.$evalParams.');';
+        else{
+            $instantiateClassExpression = 'return new '.$this->getServices()[$key]['class'].'('.$evalParams.');';
+
+        }
 
         // Lazy loading: only instantiate with eval when requested
         $this->loadedServices[$key] = $instantiateClassExpression;
