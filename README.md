@@ -21,7 +21,7 @@ echo $container->get('twig.templating')->render('index.twig.html', ['hehh' => 'Y
 
 ## Documentation
 
-Evista Composer plugin makes the marvellous Composer accessible in any WordPress project. If you never heard about it, Composer is a PHP package manager with a very good dependency resolver that makes using of third party libraries a breeze.
+ComPress plugin makes the marvellous Composer accessible in any WordPress project. If you never heard about it, Composer is a PHP package manager with a very good dependency resolver that makes using of third party libraries a breeze.
 
 Composer transformed the PHP ecosystem recently so you should probably learn it. If you want to use the latest Twig templating engine in your WordPress plugins or themes you only have to
 
