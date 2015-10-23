@@ -6,7 +6,7 @@ include_once('vendor/autoload.php');
 
 
 /*
-  Plugin Name: Evista Composer
+  Plugin Name: Composer for WordPress
   Plugin URI:
   Description: Composer integration for WordPress
   Version: 1.0
