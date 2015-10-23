@@ -4,51 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f186870c6b2bb2a7ba89fea553fc7f19",
-    "content-hash": "bffa2a491d26899a26dce9e3d613cc83",
+    "hash": "7cdf02271ffb95b182eddf7f053b0594",
+    "content-hash": "098ed70146fcfe8a198b6ce2cb11dd48",
     "packages": [
-        {
-            "name": "adamwathan/form",
-            "version": "v0.8.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/adamwathan/form.git",
-                "reference": "c71f29330d5170713bb809abce854ad43248aec9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/adamwathan/form/zipball/c71f29330d5170713bb809abce854ad43248aec9",
-                "reference": "c71f29330d5170713bb809abce854ad43248aec9",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "illuminate/support": "4.*",
-                "mockery/mockery": "~0.9",
-                "phpunit/phpunit": "3.7.*",
-                "satooshi/php-coveralls": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "AdamWathan\\Form": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Adam Wathan",
-                    "email": "adam.wathan@gmail.com"
-                }
-            ],
-            "description": "A basic framework agnostic form building package with a few extra niceties like remembering old input and retrieving error messages.",
-            "time": "2015-10-10 13:52:33"
-        },
         {
             "name": "twig/twig",
             "version": "v1.22.3",
