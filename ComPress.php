@@ -37,7 +37,18 @@ class ComPress {
             */
 
             /**
-             * Swiftmailer mail: swiftmail/swiftmail
+             * Swiftmailer mail
+             * composer require swiftmailer/swiftmailer
+             * https://packagist.org/packages/swiftmailer/swiftmailer
+             *
+             * Usage:
+             * $message = \Swift_Message::newInstance();
+             * $message
+             * ->setBody('<h1>Test</h1>')
+             * ->setSubject("test")
+             * ->setFrom('info@e-vista.hu')
+             * ->setTo('balint.sera@gmail.com');
+             * $mailer->send($message);
              */
 
             'swiftmailer.transport' => [
@@ -51,9 +62,14 @@ class ComPress {
                 'method' => 'newInstance',
                 'arguments' => ['@swiftmailer.transport']
             ],
-            
+
             /**
-             * Twig templating: symfony/twig
+             * Twig templating:
+             * composer require twig/twig
+             * https://packagist.org/packages/twig/twig
+             *
+             * Usage: echo $container->get('twig.templating')->render('test.html.twig', ['hehh' => 'Yeah!' ]);
+
              */
             'twig.loader' =>[
                 'class' => '\Twig_Loader_Filesystem',
