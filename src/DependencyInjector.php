@@ -10,6 +10,7 @@ namespace Evista\ComPress;
 
 use Evista\ComPress\Exception\UnknownServiceException;
 use Evista\ComPress\Exception\BadServiceParameterException;
+use Evista\ComPress\Exception\EmptyServiceException;
 
 class DependencyInjector implements Injectable
 {
@@ -30,19 +31,23 @@ class DependencyInjector implements Injectable
      * Lazy load
      * @param $key
      * @return mixed
+     * @throws EmptyServiceException
      * @throws UnknownServiceException
      */
     public function get($key){
+        if(null === $key){
+            throw new EmptyServiceException('Empty service key: '.$key);
+        }
         if(!array_key_exists($key, $this->loadedServices)){
             throw new UnknownServiceException('Unknown service: '.$key);
         }
 
-        // Lazy loading: if already
+        // Lazy loading: if already loaded just return the object
         if(is_object($this->loadedServices[$key])){
             return $this->loadedServices[$key];
         }
 
-        // Eval if only a eval command
+        // Eval if it's only an eval command
         if(is_string($this->loadedServices[$key])){
             $this->loadedServices[$key] = eval($this->loadedServices[$key]);
             return $this->loadedServices[$key];
@@ -69,7 +74,15 @@ class DependencyInjector implements Injectable
 
         // If 'method' is set, instantiate as an abstract class
         if(null !== $this->getServices()[$key]['method']){
-            $instantiateClassExpression = 'return '.$this->getServices()[$key]['class'].'::'.$this->getServices()[$key]['method'].'();';
+            $instantiateClassExpression = 'return '.$this->getServices()[$key]['class'].'::'.$this->getServices()[$key]['method'];
+
+            // with arguments
+            if(isset($serviceArgs)){
+                $instantiateClassExpression .= "(".$this->convertArgumentsToExpression($serviceArgs).");";
+            }
+            else{
+                $instantiateClassExpression .= "();";
+            }
         }
 
         // Generate full instatialization expression to use later
@@ -107,7 +120,7 @@ class DependencyInjector implements Injectable
             }
 
             // String
-            elseif(is_string($serviceKey)){
+            elseif(is_string($serviceKey) || is_float($serviceKey) || is_int($serviceKey)){
                 $evalParams .= $this->processStringServiceArgument($serviceKey);
             }
 
@@ -167,7 +180,7 @@ class DependencyInjector implements Injectable
             elseif(is_int($arrayValue)){
                 $pattern = '"%s"=>%d';
             }
-            else{
+            elseif(is_float($pattern)){
                 $pattern = '"%s"=>%f';
             }
             $evalParams .= sprintf($pattern, $arrayKey, $arrayValue);

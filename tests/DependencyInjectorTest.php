@@ -48,6 +48,22 @@ class DependencyInjectorTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\StdClass', $depIn->get('static'));
     }
 
+    /**
+     * Testing abstract method injection with parameters
+     */
+    public function testAbstractClassWithParameters(){
+        $services = [
+            'static' => [
+                'class' => 'Evista\ComPress\Service\TestStaticService',
+                'method' => 'init',
+                'arguments' => ["String", 12, 6.78]
+            ]
+        ];
+        $depIn = new DependencyInjector($services);
+        $this->assertInstanceOf('\StdClass', $depIn->get('static'));
+
+    }
+
 
 
 }
