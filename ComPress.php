@@ -37,12 +37,7 @@ class ComPress {
             */
 
             /**
-             * this is how swifmailer have to be initialized
-             *  $transport = \Swift_SmtpTransport::newInstance('127.0.0.1', 25);
-
-            // Create the Mailer using your created Transport
-            $mailer = \Swift_Mailer::newInstance($transport);
-            $message = \Swift_Message::newInstance();
+             * Swiftmailer mail: swiftmail/swiftmail
              */
 
             'swiftmailer.transport' => [
@@ -56,8 +51,10 @@ class ComPress {
                 'method' => 'newInstance',
                 'arguments' => ['@swiftmailer.transport']
             ],
-
-
+            
+            /**
+             * Twig templating: symfony/twig
+             */
             'twig.loader' =>[
                 'class' => '\Twig_Loader_Filesystem',
                 'arguments' => [$this->getTwigTemplateDir()]
