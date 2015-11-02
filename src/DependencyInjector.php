@@ -161,7 +161,16 @@ class DependencyInjector implements Injectable
             if(is_array($arrayValue) || is_object($arrayValue)){
                 throw new BadServiceParameterException('Only primitive values supported as array members');
             }
-            $evalParams .= sprintf('"%s"=>"%s"', $arrayKey, $arrayValue);
+            if(is_string($arrayValue)){
+                $pattern = '"%s"=>"%s"';
+            }
+            elseif(is_int($arrayValue)){
+                $pattern = '"%s"=>%d';
+            }
+            else{
+                $pattern = '"%s"=>%f';
+            }
+            $evalParams .= sprintf($pattern, $arrayKey, $arrayValue);
         }
 
         $evalParams = "[".$evalParams."]";
