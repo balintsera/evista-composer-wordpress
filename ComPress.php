@@ -28,9 +28,6 @@ class ComPress {
      *
      */
     public function setUpServices(){
-        if(file_exists('services.php')){
-            include_once('services.php');
-        }
 
         $this->services = [
 
@@ -38,6 +35,9 @@ class ComPress {
                 'class' => 'AdamWathan\Form\FormBuilder',
             ],
 
+            'yaml' => [
+                'class' => 'Symfony\Component\Yaml\Yaml',
+            ],
 
             /**
              * Swiftmailer mail
