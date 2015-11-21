@@ -19,12 +19,20 @@
     "require": {
         "php" : ">=5.5.0",
         "twig/twig": "~1.0",
-        "swiftmailer/swiftmailer": "^5.4"
+        "swiftmailer/swiftmailer": "^5.4",
+        "monolog/monolog": "^1.17",
+        "evista/formista": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit" : "4.*",
         "scrutinizer/ocular": "~1.1"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url":  "ssh://evista@dev.e-vista.hu:2222/home/git/localpackage.git"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Evista\\ComPress\\": "src/"

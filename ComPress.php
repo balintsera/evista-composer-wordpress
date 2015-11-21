@@ -28,13 +28,16 @@ class ComPress {
      *
      */
     public function setUpServices(){
+        if(file_exists('services.php')){
+            include_once('services.php');
+        }
 
         $this->services = [
-            /*
+
             'form.builder' => [
                 'class' => 'AdamWathan\Form\FormBuilder',
             ],
-            */
+
 
             /**
              * Swiftmailer mail
@@ -50,7 +53,7 @@ class ComPress {
              * ->setTo('balint.sera@gmail.com');
              * $mailer->send($message);
              */
-
+            /**
             'swiftmailer.transport' => [
                 'class' => '\Swift_SmtpTransport',
                 'method' => 'newInstance',
@@ -62,7 +65,7 @@ class ComPress {
                 'method' => 'newInstance',
                 'arguments' => ['@swiftmailer.transport']
             ],
-
+            */
             /**
              * Twig templating:
              * composer require twig/twig
