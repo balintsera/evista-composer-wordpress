@@ -1,0 +1,45 @@
+form.builder:
+  class: 'AdamWathan\Form\FormBuilder'
+
+# Swift Mailer
+swiftmailer.transport:
+  class: '\Swift_SmtpTransport'
+  method: 'newInstance'
+  arguments: ['127.0.0.1', 25]
+
+swiftmailer.mailer:
+  class: '\Swift_Mailer'
+  method: 'newInstance'
+  arguments: ['@swiftmailer.transport']
+
+# Twig templating
+
+twig.dinamic_dir:
+    class: 'Evista\ComPress\Compress'
+    method: 'getTwigTemplateDir'
+
+twig.loader:
+   class: '\Twig_Loader_Filesystem'
+   arguments: ['@twig.dinamic_dir']
+
+twig.templating:
+   class: '\Twig_Environment'
+   arguments: ['@twig.loader']
+
+
+
+
+# Testing
+test.service:
+    class: 'Evista\ComPress\Service\TestService'
+    arguments: ['@test.service.param1', '@test.service.param2']
+
+test.service.param1:
+    class: 'Evista\ComPress\Service\TestService2'
+    arguments: ['@test.service.param2', {'testarray': 'testparam'}]
+
+test.service.param2:
+    class: 'Evista\ComPress\Service\TestService3'
+    arguments: ['stringarg']
+
+
