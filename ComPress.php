@@ -39,6 +39,7 @@ class ComPress {
         $this->services = Yaml::parse(file_get_contents(__DIR__.'/services.yml'));
     }
 
+    // It's a handy microservice to enable dinamic argument for twig
     public static function getTwigTemplateDir(){
         // Get current template for setup twig's view directory
         $currentTheme = wp_get_theme();
