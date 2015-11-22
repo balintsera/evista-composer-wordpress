@@ -19,8 +19,15 @@ class ComPress {
     private $container;
 
     public function __construct(){
+        // Setup whoops exception handler
+        $whoops = new \Whoops\Run;
+        $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+        $whoops->register();
+
+        // Initialize services
         $this->setUpServices();
-        // Inicializations goes here
+
+        // Create the lazy service container
         $this->container = new DependencyInjector($this->services);
     }
 

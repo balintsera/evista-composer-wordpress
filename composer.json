@@ -22,7 +22,8 @@
         "swiftmailer/swiftmailer": "^5.4",
         "monolog/monolog": "^1.17",
         "evista/formista": "dev-master",
-        "symfony/yaml": "^2.7"
+        "symfony/yaml": "^2.7",
+        "filp/whoops": "^1.1"
     },
     "require-dev": {
         "phpunit/phpunit" : "4.*",
