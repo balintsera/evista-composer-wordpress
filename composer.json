@@ -1,5 +1,6 @@
 {
     "name": "evista/compress",
+    "type": "wordpress-plugin",
     "description": "Composer package manager integration for WordPress",
     "keywords": [
         "evista",
