@@ -20,7 +20,8 @@ class DependencyInjector implements Injectable
 
     public function __construct($services){
         $this->services = $services;
-        array_walk($this->getServices(), function($serviceDesctription, $serviceKey){
+        $allServices = $this->getServices();
+        array_walk($allServices, function($serviceDesctription, $serviceKey){
             $this->instantiateService($serviceKey);
         });
         //var_dump($this->loadedServices);
@@ -67,13 +68,15 @@ class DependencyInjector implements Injectable
         }
 
         // Get this service's arguments
-        $serviceArgs = $this->getServices()[$key]['arguments'];
+        if(array_key_exists('arguments', $this->getServices()[$key])){
+            $serviceArgs = $this->getServices()[$key]['arguments'];
 
-        // convert arguments to a string list for use in eval
-        $evalParams = $this->convertArgumentsToExpression($serviceArgs);
+            // convert arguments to a string list for use in eval
+            $evalParams = $this->convertArgumentsToExpression($serviceArgs);
+        }
 
         // If 'method' is set, instantiate as an abstract class
-        if(null !== $this->getServices()[$key]['method']){
+        if(array_key_exists('method', $this->getServices()[$key])){
             $instantiateClassExpression = 'return '.$this->getServices()[$key]['class'].'::'.$this->getServices()[$key]['method'];
 
             // with arguments
@@ -87,12 +90,15 @@ class DependencyInjector implements Injectable
 
         // Generate full instatialization expression to use later
         else{
-            $instantiateClassExpression = 'return new '.$this->getServices()[$key]['class'].'('.$evalParams.');';
-
+            if(isset($evalParams)){
+                $instantiateClassExpression = 'return new '.$this->getServices()[$key]['class'].'('.$evalParams.');';
+            }
         }
 
-        // Lazy loading: only instantiate with eval when requested
-        $this->loadedServices[$key] = $instantiateClassExpression;
+        if(isset($instantiateClassExpression)){
+            // Lazy loading: only instantiate with eval when requested
+            $this->loadedServices[$key] = $instantiateClassExpression;
+        }
     }
 
     /**
